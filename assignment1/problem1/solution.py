@@ -12,14 +12,20 @@ length = len1 + len2
 
 def merge_sort(l1, l2):
     first_pointer = second_pointer = 0
-    for i in range(1, length):
-        if int(l1[first_pointer]) >= int(l2[second_pointer]):
+    for i in range(0, length):
+        if len1 == first_pointer:
+            third.append(int(l2[second_pointer]))
+            second_pointer += 1
+        elif len2 == second_pointer:
             third.append(int(l1[first_pointer]))
-            first_pointer = first_pointer + 1
+            first_pointer += 1
+        elif int(l1[first_pointer]) <= int(l2[second_pointer]):
+            third.append(int(l1[first_pointer]))
+            first_pointer += 1
         else:
             third.append(int(l2[second_pointer]))
-            second_pointer = second_pointer + 1
+            second_pointer += 1
     third.insert(0, length)
-    print(third)
+    print(' '.join(str(x) for x in third))
 
 merge_sort(l1, l2)
