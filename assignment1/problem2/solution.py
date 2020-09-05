@@ -7,7 +7,6 @@ def merge(l1, l2):
     len2 = len(l2)
     totalLength = len1 + len2
     third = []
-    third.append(totalLength)
     for i in range(0, totalLength):
         if len1 == first_pointer:
             third.append(int(l2[second_pointer]))
@@ -26,12 +25,12 @@ def merge(l1, l2):
 def mergeSort(lt):
     if len(lt) <= 1:
         return lt
-    n = len(lt)
-    sort1 = mergeSort(lt[:n/2])
-    sort2 = mergeSort(lt[n/2:])
-    return (merge(sort1, sort2)
+    n = int(len(lt)/2)
+    sort1 = mergeSort(lt[:n])
+    sort2 = mergeSort(lt[n:])
+    return merge(sort1, sort2)
 
 arrayString = ""
 for i in mergeSort(ls):
-    arrayString += (i + " ")
+    arrayString += (str(i) + " ")
 print(arrayString)
