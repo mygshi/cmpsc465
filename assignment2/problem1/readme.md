@@ -1,27 +1,21 @@
-# Due Date
-
-Monday, 9/7/2020, 11:59PM EDT.
-
 # Problem Description
 
-Implement merge-sort to sort an array.
+Given an array A with n distinct integers, design an algorithm to count the number of pairs (A[i],A[j]) satisfying that i < j and A[i] > A[j].
 
 # Input
 
 Two lines, the first line gives only one number `n`, the number of integers in the array. And the second line gives `n` numbers which are
 the `n` integers in the array. All numbers are separated by space.
 
-You can assume that 0 <= n <= 10000, and that each number in the arrarys
+You can assume that 0 <= n <= 50000, and that each number in the arrarys
 are in the range of [-2147483648, 2147483647]. 
 
-Your code should read the input from standard input (e.g. using functions `input()/raw_input()` in Python and `cin/scanf` in C++).
+Your code should read the input from standard input (e.g. 
+using functions `input()/raw_input()` in Python and `cin/scanf` in C++).
 
 # Output
 
-One line, describing the sorted array, in ascending order.
-There should be `n` integers in a line give all numbers in the sorted array (in ascending order).
-All numbers should be separated with space.
-(You don't need to output the size of the array `n`.)
+One number in a line, representing the number of pairs (A[i],A[j]) satisfying that i < j and A[i] > A[j].
 
 Your code should write the output to standard output (e.g. using functions `print` in Python and `cout/printf` in C++).
 
@@ -65,8 +59,13 @@ fc my-output-x.txt output-x.txt
 # Submission
 
 If you want to upload a single file, make sure the file is named as `solution.py` (for Python) or `solution.cpp` (for C++).
-If you submit via GitHub, make sure your file is located in directory `assignment1/problem2/solution.py` (for Python) or `assignment1/problem2/solution.cpp` (for C++).
+If you submit via GitHub, make sure your file is located in directory `assignment2/problem1/solution.py` (for Python) or `assignment2/problem1/solution.cpp` (for C++).
+
+# Related Material
+
+Refer to Chapter 5.3, Algorithm Design [KT].
 
 # Hints
 
-Reuse the code you write for problem 1.
+Reuse the code you write for assignment 1.
+
