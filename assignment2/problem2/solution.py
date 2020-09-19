@@ -7,64 +7,80 @@ points = []
 #getting the lowest point while also extracting data from input
 lowestY = 9999
 pointOfLowY = None
+
 leftmost = None
 leftmostX = 999999
+
 rightmost = None
 rightmostX = -9999999
 for i in range(0, length):
     points.append(input().split())
-    if float(points[i][1]) <= lowestY:
+    if float(points[i][1]) < lowestY:
         lowestY = float(points[i][1])
         pointOfLowY = i
-
+        lowestX = float(points[i][0])
     if float(points[i][0]) <= leftmostX:
         leftmostX = float(points[i][0])
     if float(points[i][0]) >= rightmostX:
         rightmostX = float(points[i][0])
 
-
 #sort with angles
-offset = 3.1415/2
+convert = 180/3.1415
 for i in range(0,length):
-    y = float(points[pointOfLowY][1])-float(points[i][1])
-    x = float(points[pointOfLowY][0])-float(points[i][0])
+    y = lowestY-float(points[i][1])
+    x = lowestX-float(points[i][0])
 
-    angle = math.atan2(y,x)
-    if angle < 0:
-        angle = abs(angle) + offset
+    angle = 0
+    if x==0:
+        angle = 0
+    elif float(points[i][0]) < lowestX:
+        angle = 180-math.atan(y/-x) * convert
+    else:
+        angle = math.atan(y/x) * convert
+
     points[i].insert(0,angle)
 
 points.sort()
-
 #graham-scan
 stack = []
-stack.append(points[1])
-stack.append(points[2])
-stack.append(points[3])
+stack.append(points[0][1:])
+stack.append(points[1][1:])
+stack.append(points[2][1:])
 
-for i in range(4, length):
-    while not stack:
+for i in range(3, length):
+    while stack:
+        print("stack:",stack)
+        top = len(stack)-1
+        top2 = top-1
         #right hand rule
-        slope1 = (point[i-1][2]-point[i-2][2])/(point[i-1][1]-point[i-2][1])
-        slope2 = (point[i][2]-point[i-1][2])/(point[i][1]-point[i-1][1])
+        vec1X = (float(stack[top2][0])-float(stack[top][0]))
+        vec1Y = (float(stack[top2][1])-float(stack[top][1]))
+        vec2X = float(points[i][1])-float(stack[top][0])
+        vec2Y = float(points[i][2])-float(stack[top][1])
 
-        if slope1 < slope2:
+        crossproduct = vec1X * vec2Y - vec1Y * vec2X
+        #crossproduct of a and b determines "turning right or left"
+        print(stack[top2],stack[top],points[i],crossproduct)
+        if crossproduct > 0:
+            print("pop")
             stack.pop()
+            top-= 1
+            top2 -= 1
         else:
             break
-    stack.append(points[i])
 
-print(leftmostX,rightmostX)
+    stack.append(points[i][1:])
+
+print("stack:",stack)
 #find leftmost and rightmost
 for i in range(0, len(stack)):
-    print(stack[i])
-    if leftmostX == float(stack[i][1]):
+    if leftmostX == float(stack[i][0]):
         leftmost = i
-    if rightmostX == float(stack[i][1]):
+    if rightmostX == float(stack[i][0]):
         rightmost = i
 
 upper = 0
-lower = 0
+lower = 2
 for i in range(0, len(stack)):
     if i >= rightmost and i <= leftmost:
         upper += 1
