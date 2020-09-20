@@ -4,7 +4,6 @@ array = []
 for i in range(0, length):
     array.append(input().split())
 
-print(array)
 i = 0
 j = 0
 counter = 0
