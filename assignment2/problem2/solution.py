@@ -5,7 +5,7 @@ length = int(input())
 points = []
 
 #getting the lowest point while also extracting data from input
-lowestY = 9999
+lowestY = 9999999
 pointOfLowY = None
 
 leftmost = None
@@ -49,7 +49,6 @@ stack.append(points[2][1:])
 
 for i in range(3, length):
     while stack:
-        print("stack:",stack)
         top = len(stack)-1
         top2 = top-1
         #right hand rule
