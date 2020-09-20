@@ -1,3 +1,4 @@
+#Vivian Chen, Michael Shi, Dominick Spadafore
 length = int(input())
 array = []
 
