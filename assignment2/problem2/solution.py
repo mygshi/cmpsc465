@@ -60,9 +60,7 @@ for i in range(3, length):
 
         crossproduct = vec1X * vec2Y - vec1Y * vec2X
         #crossproduct of a and b determines "turning right or left"
-        print(stack[top2],stack[top],points[i],crossproduct)
         if crossproduct > 0:
-            print("pop")
             stack.pop()
             top-= 1
             top2 -= 1
@@ -71,7 +69,6 @@ for i in range(3, length):
 
     stack.append(points[i][1:])
 
-print("stack:",stack)
 #find leftmost and rightmost
 for i in range(0, len(stack)):
     if leftmostX == float(stack[i][0]):
