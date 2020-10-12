@@ -3,6 +3,9 @@
 #Michael Shi mxs977
 
 from collections import defaultdict
+line = input().split()
+vertices = int(line[0])
+edges = int(line[1])
 
 def first_dfs(graph, u, visited, stack):
 	visited[u] = 1
