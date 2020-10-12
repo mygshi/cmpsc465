@@ -5,16 +5,16 @@
 from collections import defaultdict
 
 def first_dfs(graph, u, visited, stack):
-	vis(u) = 1
-	for v in graph(u):
-		if vis(v) == False:
+	visited[u] = 1
+	for v in graph[u]:
+		if visited[v] == False:
 			dfs1(graph, v, visited, stack)
 		stack.append(u)
 
 def second_dfs(graph, u ,visited):
 	visited[u] = 1
 	for v in graph[u]:
-		if vis[v] == False:
+		if visited[v] == False:
 			dfs2(graph, v, visited)
 
 def reverse_graph(graph, n):
@@ -23,3 +23,5 @@ def reverse_graph(graph, n):
 		for v in graph[u]:
 			rev_graph[v].append(u)
 	return new_graph
+
+def count(graph, n);
