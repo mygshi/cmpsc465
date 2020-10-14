@@ -1,5 +1,5 @@
-#Dominick Spadafore
-#Vivian Chen
+#Dominick Spadafore djs6744
+#Vivian Chen vyc5073
 #Michael Shi mxs977
 
 from queue import PriorityQueue
