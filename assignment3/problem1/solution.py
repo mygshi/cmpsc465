@@ -22,7 +22,7 @@ def second_dfs(graph, u ,visited):
 # Transposes the inputted graph and returns the reversed version
 def reverse_graph(graph, vertices):
 	new_graph = defaultdict(list)
-	for u in range(1, vertices + 1):
+	for u in range(0, vertices):
 		for v in graph[u]:
 			new_graph[v].append(u)
 	return new_graph
@@ -33,7 +33,7 @@ def count(graph, vertices):
 	count = 0
 	reversed_graph = reverse_graph(graph, vertices)
 	visited = [False] * (vertices + 1)
-	for i in range(1, vertices + 1):
+	for i in range(0, vertices):
 		if visited[i] == False:
 			first_dfs(graph, i, visited, arr)
 	visited = [False] * (vertices + 1)
