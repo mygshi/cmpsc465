@@ -7,7 +7,7 @@ import heapq
 import math
 
 def dijkstra(n, m, s, l, E, v):
-    infinity = 99999
+    infinity = math.inf
 
     dist = [infinity] * n
     prev = [None] * n
