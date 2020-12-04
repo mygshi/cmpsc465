@@ -12,8 +12,8 @@ for i in range (0, m):
     line = input().split()
     u = int(line[0])
     v = int(line[1])
-    w = int(line[2])
-    G.append([u, v, w])
+    length = int(line[2])
+    G.append([u, v, length])
 
 # find Algorithm
 def find(parent, x):
@@ -40,8 +40,8 @@ def Kruskal(*G, n, m):
     i = 0
     e = 0
     G = G[0]
-    G = sorted(G, key=lambda item: item[2])
-    
+    G = sorted(G, key = lambda length: length[2])
+
     parent = []
     height = []
     for v in range(0, n):
@@ -49,18 +49,18 @@ def Kruskal(*G, n, m):
         height.append(1)
 
     while( e < n - 1 ):
-        u, v, w = G[i]
+        u, v, length = G[i]
         i += 1
         ru = find(parent, u - 1)
         rv = find(parent, v - 1)
         if ru != rv:
+            minSpanTree.append([u, v, length])
             e += 1
-            minSpanTree.append([u, v, w])
             union(parent, height, ru, rv)
         
     edgeSum = 0
-    for u, v, w in minSpanTree:
-        edgeSum += w
+    for u, v, length in minSpanTree:
+        edgeSum += length
     print( edgeSum )
 
 # Calling the Kruskal Algorithm
