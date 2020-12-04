@@ -36,7 +36,7 @@ def union(parent, height, x, y):
  
 # Kruskal Algorithm
 def Kruskal(*G, n, m):
-    result = []
+    minSpanTree = []
     i = 0
     e = 0
     G = G[0]
@@ -50,16 +50,16 @@ def Kruskal(*G, n, m):
 
     while( e < n - 1 ):
         u, v, w = G[i]
-        i = i + 1
+        i += 1
         ru = find(parent, u - 1)
         rv = find(parent, v - 1)
         if ru != rv:
-            e = e + 1
-            result.append([u, v, w])
+            e += 1
+            minSpanTree.append([u, v, w])
             union(parent, height, ru, rv)
         
     edgeSum = 0
-    for u, v, w in result:
+    for u, v, w in minSpanTree:
         edgeSum += w
     print( edgeSum )
 
