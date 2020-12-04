@@ -13,7 +13,7 @@ def DPWeighted(lst,n):
 #finds the rightmost interval that doesn't overlap
 def binarySearch(A,k,a,b):
     m = int((a+b)/2)
-    if(A[m][1] <= A[k][0] <= A[m+1][1]):
+    if(A[m][1] <= A[k][0] < A[m+1][1]):
         return m
     elif(A[m][1]>A[k][0]):
         return binarySearch(A,k,a,m)
