@@ -1,4 +1,8 @@
-# Inputs
+#Dominick Spadafore djs6744
+#Vivian Chen vyc5073
+#Michael Shi mxs977
+
+# Mainframe
 G = []
 line1 = input().split()
 n = int(line1[0])
@@ -44,7 +48,6 @@ def Kruskal(*G, n, m):
         parent.append(v)
         height.append(1)
 
-    print(G)
     while( e < n - 1 ):
         u, v, w = G[i]
         i = i + 1
@@ -55,7 +58,6 @@ def Kruskal(*G, n, m):
             result.append([u, v, w])
             union(parent, height, ru, rv)
         
-
     edgeSum = 0
     for u, v, w in result:
         edgeSum += w
